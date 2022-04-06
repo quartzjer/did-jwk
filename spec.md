@@ -5,13 +5,23 @@
 ### DID Format
 
 ```
-did-key-format := did:key:<base64url-value>
-base64url-value    := [A-Za-z0-9_-]+
+did-key-format   := did:key:<base64url-value>
+base64url-value  := [A-Za-z0-9_-]+
 ```
 
 The `base64url-value` is a [base64url](https://datatracker.ietf.org/doc/html/rfc4648#section-5) encoded [JSON Web Key](https://datatracker.ietf.org/doc/html/rfc7517) (JWK).
 
-Once decoded, the JWK contents are used to generate a [DID Document](https://www.w3.org/TR/did-core/#dfn-did-documents).  The resulting document will take the form:
+
+### DID Operations
+
+#### Create
+
+1. Generate a JWK
+2. Serialize it into a UTF-8 string
+3. Encode that string using base64url
+4. Attach the prefix `did:jwk:`
+
+The JWK is also used to generate the [DID Document](https://www.w3.org/TR/did-core/#dfn-did-documents).  The resulting document will take the form below with the generated identifier and `publicKeyJwk` fields updated:
 
 ```json
 {
@@ -25,7 +35,7 @@ Once decoded, the JWK contents are used to generate a [DID Document](https://www
       "id": "did:jwk:...",
       "type": "JsonWebSignature2020",
       "controller": "did:jwk:...",
-      "publicKeyJwk": {...}
+      "publicKeyJwk": {}
     }
   ],
   "assertionMethod": ["did:jwk:..."],
@@ -35,16 +45,6 @@ Once decoded, the JWK contents are used to generate a [DID Document](https://www
   "keyAgreement": ["did:jwk:..."]
 }
 ```
-
-
-### DID Operations
-
-#### Create
-
-1. Generate a JWK
-2. Serialize it into a UTF-8 string
-3. Encode that string using base64url
-4. Attach the prefix `did:jwk:`
 
 #### Read
 
@@ -61,6 +61,7 @@ Not supported.
 #### Deactivate
 
 Not supported.
+
 
 ### Security and Privacy Considerations
 
