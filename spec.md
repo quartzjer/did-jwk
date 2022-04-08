@@ -33,7 +33,7 @@ The JWK is also used to generate the [DID Document](https://www.w3.org/TR/did-co
   "verificationMethod": [
     {
       "id": "did:jwk:...",
-      "type": "JsonWebSignature2020",
+      "type": "JsonWebKey2020",
       "controller": "did:jwk:...",
       "publicKeyJwk": {}
     }
