@@ -5,7 +5,7 @@
 ### DID Format
 
 ```
-did-key-format   := did:key:<base64url-value>
+did-jwk-format   := did:jwk:<base64url-value>
 base64url-value  := [A-Za-z0-9_-]+
 ```
 
