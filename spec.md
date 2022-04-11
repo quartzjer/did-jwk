@@ -21,28 +21,27 @@ The `base64url-value` is a [base64url](https://datatracker.ietf.org/doc/html/rfc
 3. Encode that string using base64url
 4. Attach the prefix `did:jwk:`
 
-The JWK is also used to generate the [DID Document](https://www.w3.org/TR/did-core/#dfn-did-documents).  The resulting document will take the form below with the generated identifier and `publicKeyJwk` fields updated:
-
+The JWK is also used to generate the [DID Document](https://www.w3.org/TR/did-core/#dfn-did-documents).  The resulting document will take the form below with the Base64 URL encoded value described above replacing `${base64url-value}`, and the JSON Web Key structure replacing `${json-web-key}` :
 ```json
 {
   "@context": [
     "https://www.w3.org/ns/did/v1",
     "https://w3id.org/security/suites/jws-2020/v1"
   ],
-  "id": "did:jwk:...",
+  "id": "did:jwk:${base64url-value}",
   "verificationMethod": [
     {
-      "id": "did:jwk:...",
+      "id": "did:jwk:${base64url-value}#0",
       "type": "JsonWebKey2020",
-      "controller": "did:jwk:...",
-      "publicKeyJwk": {}
+      "controller": "did:jwk:${base64url-value}",
+      "publicKeyJwk": ${json-web-key}
     }
   ],
-  "assertionMethod": ["did:jwk:..."],
-  "authentication": ["did:jwk:..."],
-  "capabilityInvocation": ["did:jwk:..."],
-  "capabilityDelegation": ["did:jwk:..."],
-  "keyAgreement": ["did:jwk:..."]
+  "assertionMethod": ["did:jwk:${base64url-value}#0"],
+  "authentication": ["did:jwk:${base64url-value}#0"],
+  "capabilityInvocation": ["did:jwk:${base64url-value}#0"],
+  "capabilityDelegation": ["did:jwk:${base64url-value}#0"],
+  "keyAgreement": ["did:jwk:${base64url-value}#0"]
 }
 ```
 
