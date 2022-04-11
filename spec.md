@@ -37,11 +37,11 @@ The JWK is also used to generate the [DID Document](https://www.w3.org/TR/did-co
       "publicKeyJwk": ${json-web-key}
     }
   ],
-  "assertionMethod": ["did:jwk:${base64url-value}"],
-  "authentication": ["did:jwk:${base64url-value}"],
-  "capabilityInvocation": ["did:jwk:${base64url-value}"],
-  "capabilityDelegation": ["did:jwk:${base64url-value}"],
-  "keyAgreement": ["did:jwk:${base64url-value}"]
+  "assertionMethod": ["did:jwk:${base64url-value}#0"],
+  "authentication": ["did:jwk:${base64url-value}#0"],
+  "capabilityInvocation": ["did:jwk:${base64url-value}#0"],
+  "capabilityDelegation": ["did:jwk:${base64url-value}#0"],
+  "keyAgreement": ["did:jwk:${base64url-value}#0"]
 }
 ```
 
