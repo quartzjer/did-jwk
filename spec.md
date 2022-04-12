@@ -55,6 +55,8 @@ If the JWK contains a `use` property with the value "sig" then the `keyAgreement
 
 The JWK _should_ have the appropriate `use` value set to match the capabilities of the specified `crv`.  For example, the curve `ed25519` is only valid for "sig" use and `X25519` is only valid for "enc" (see [RFC 8037](https://datatracker.ietf.org/doc/html/rfc8037) and the second example below).
 
+The JWK may contain additional custom properties and values which will be accessible only in the `verificationMethod`.  Any additional properties other than `use` (as documented above) are not referenced or used in the generation of the DID Document.
+
 #### To create the DID URL:
 
 Since `did:jwk` only contains a single key, the DID URL fragment identifier is always a fixed `#0` value.
