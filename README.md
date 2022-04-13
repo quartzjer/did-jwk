@@ -1,2 +1,3 @@
-# did-jwk
-DID JWK Method Spec
+# DID JWK Method Specification
+
+See [spec.md](./blob/main/spec.md)
